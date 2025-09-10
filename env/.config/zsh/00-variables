@@ -1,0 +1,33 @@
+# ---------------------------------------------------------
+# ALIASES
+# ---------------------------------------------------------
+alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+
+alias ls='ls --color'
+alias la='ls -a --color'
+alias ll='ls -la --color'
+alias vi='nvim'
+
+# ---------------------------------------------------------
+# EXPORTS
+# ---------------------------------------------------------
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+export FZF_DEFAULT_OPTS="--bind 'alt-j:down' --bind 'alt-k:up'"
+# for vim mode
+export KEYTIMEOUT=28
+
+export MANPAGER="nvim -c 'Man!' -c 'set number relativenumber' -"
+
+export EDITOR=nvim
+
+export GALLIUM_DRIVER=d3d12
+
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:$HOME/fzf/bin"
+export PATH="$PATH:$HOME/.local/scripts"
+export PATH="$PATH:/home/jonas/.local/bin"
+export TERM=tmux-256color
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins"
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"

@@ -1,0 +1,14 @@
+[user]
+	email = jonaskleinebecker@gmail.com
+	name = Jonas Kleinebecker
+[init]
+	defaultBranch = main
+	templateDir = /home/jonas/.local/share/git/templates
+[rerere]
+  enabled = true
+[core]
+	excludesFile = /home/jonas/.config/git/ignore
+	hooksPath = /home/jonas/.config/git/hooks
+	attributesFile = /home/jonas/.config/git/attributes
+[credential]
+	helper = store --file /home/jonas/.config/git/credentials

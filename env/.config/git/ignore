@@ -1,0 +1,4 @@
+.ready-tmux
+.venv/
+venv/
+__pycache__/

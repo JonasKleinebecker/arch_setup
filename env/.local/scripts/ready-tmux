@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ -x .ready-tmux ]]; then
+  ./.ready-tmux
+elif
+  [[ -x $HOME/.local/scripts/subscripts/ready-tmux-default ]]
+then
+  $HOME/.local/scripts/subscripts/ready-tmux-default
+fi
+clear

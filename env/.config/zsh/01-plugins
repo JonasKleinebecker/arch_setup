@@ -1,0 +1,44 @@
+# ---------------------------------------------------------
+# Plugin Updates
+# ---------------------------------------------------------
+# Always skip auto-update logic in non-interactive shells
+[[ $- != *i* ]] && return
+
+# Define a marker file to store the last update timestamp
+PLUGIN_DIR="$XDG_CONFIG_HOME/zsh/plugins"  
+ts_file="$PLUGIN_DIR/last_update_ts"
+
+upgrade_plugins() {
+  start_dir=$PWD
+  echo "Updating Zsh plugins..."
+  cd "$PLUGIN_DIR" || return
+  for dir in */; do
+    if [ -d "$dir/.git" ]; then
+      echo "  └─ $dir"
+      git -C "$dir" pull --ff-only || echo "    (error updating $dir)"
+    fi
+  done
+  cd "$start_dir" || return
+}
+
+if [[ -f "$ts_file" ]]; then
+  last=$(cat "$ts_file")
+else
+  last=0
+fi
+
+now=$(( $(date +%s) / 86400 ))  
+interval=7  # days between checks
+
+if (( now - last >= interval )); then
+  upgrade_plugins
+  echo "$now" > "$ts_file"
+fi
+
+# ---------------------------------------------------------
+# Source Plugins
+# ---------------------------------------------------------
+
+source $XDG_CONFIG_HOME/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
