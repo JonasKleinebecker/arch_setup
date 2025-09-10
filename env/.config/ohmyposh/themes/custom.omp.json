@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "version": 3,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "powerline",              // creates a rounded block
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#F0F0F0",           // light grey text
+          "background": "#444444",           // darker grey block
+          "properties": {
+            "prefix": " ",
+            "postfix": " "
+          },
+          "border": {
+            "radius": 3                      // subtle rounded corners
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#F0F0F0",
+          "background": "#555555",
+          "properties": {
+            "depth": 2,                      // show parent + current folder
+            "folder_style": "plain",
+            "prefix": " ",
+            "postfix": " "
+          },
+          "border": {
+            "radius": 3
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#F0F0F0",
+          "background": "#666666",
+          "properties": {
+            "display_status": false,        // only show branch
+            "display_stash_count": false,
+            "display_upstream_icon": false
+          },
+          "border": {
+            "radius": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": []
+    }
+  ]
+}
