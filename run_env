@@ -73,3 +73,5 @@ copy_file() {
 copy_dir ./env/.config $XDG_CONFIG_HOME
 copy_dir ./env/.local $HOME/.local
 copy_file ./env/.zshrc $HOME
+
+hyprctl reload
