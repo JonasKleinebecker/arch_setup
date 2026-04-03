@@ -12,6 +12,7 @@ man-pages
 zoxide
 fastfetch
 waybar
+pavucontrol
 otf-font-awesome
 wl-clipboard
 neovim
