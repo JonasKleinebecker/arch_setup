@@ -4,9 +4,10 @@
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 alias ls='ls --color'
-alias la='ls -a --color'
-alias ll='ls -la --color'
+alias la='ls -A --color'
+alias ll='ls -lA --color'
 alias vi='nvim'
+alias vim='nvim'
 
 # ---------------------------------------------------------
 # EXPORTS
@@ -20,7 +21,7 @@ export MANPAGER="nvim -c 'Man!' -c 'set number relativenumber' -"
 
 export EDITOR=nvim
 
-export GALLIUM_DRIVER=d3d12
+# export GALLIUM_DRIVER=d3d12
 
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:$HOME/fzf/bin"
