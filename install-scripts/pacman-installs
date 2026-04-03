@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sudo pacman -S zsh fzf ripgrep fd git npm zip unzip tealdeer zoxide fastfetch waybar otf-font-awesome wl-clipboard

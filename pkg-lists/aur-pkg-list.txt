@@ -1,0 +1,3 @@
+oh-my-posh
+1password
+spotify
