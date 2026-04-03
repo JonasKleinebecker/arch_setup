@@ -13,7 +13,9 @@ zoxide
 fastfetch
 waybar
 pavucontrol
+playerctl
 otf-font-awesome
+cliphist
 wl-clipboard
 neovim
 

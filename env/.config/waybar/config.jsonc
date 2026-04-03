@@ -1,0 +1,67 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 10,
+
+  "modules-left": ["clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["wireplumber","wireplumber#source", "network", "battery", "tray"],
+
+  // CLOCK (weekday + time)
+  "clock": {
+    "format": "{:%a %H:%M}"
+  },
+
+  // WORKSPACES (dots)
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  // wireplumber (icon only, no number)
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "󰖁",
+    "format-icons": ["", "", ""]
+
+
+  },
+
+  "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": "󰍬",
+      "format-muted": "󰍭",
+      "scroll-step": 5
+  },
+
+  // NETWORK (icon only)
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip": true,
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) • {ipaddr}",
+    "tooltip-format-ethernet": "{ifname} • {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
+  // BATTERY (icon only, upright)
+  "battery": {
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+    "tooltip": true
+  },
+
+  // TRAY
+  "tray": {
+    "spacing": 8
+  }
+}
