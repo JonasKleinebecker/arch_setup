@@ -6,6 +6,7 @@ git
 bat
 npm
 zip
+tmux
 unzip
 tealdeer
 man-pages
