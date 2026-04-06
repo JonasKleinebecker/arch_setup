@@ -20,3 +20,4 @@ cliphist
 wl-clipboard
 neovim
 discord
+keyd
