@@ -19,4 +19,4 @@ otf-font-awesome
 cliphist
 wl-clipboard
 neovim
-
+discord
