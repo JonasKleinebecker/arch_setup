@@ -1,0 +1,26 @@
+[Unit]
+Description=Rclone Mount Google Drive
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount jonas-gdrive: /home/jonas/gdrive \
+    --config /home/jonas/.config/rclone/rclone.conf \
+    --vfs-cache-mode full \
+    --vfs-cache-max-size 20G \
+    --vfs-cache-max-age 24h \
+    --dir-cache-time 72h \
+    --poll-interval 30s \
+    --buffer-size 128M \
+    --log-level INFO \
+    --log-file /home/jonas/.cache/rclone/rclone.log \
+    --allow-other \
+    --timeout 1h \
+    --contimeout 1m
+ExecStop=/bin/fusermount -uz /home/jonas/gdrive
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

@@ -21,3 +21,4 @@ wl-clipboard
 neovim
 discord
 keyd
+rclone

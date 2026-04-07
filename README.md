@@ -36,3 +36,8 @@ The hyprland config includes desktop/laptop specific configurations.
 They are seperated out into their own files in .config/hypr/.
 Source the file including the extensions you want to activate in the main hyprland.conf file.
 
+The google drive integration via rclone is configured in this repository via systemd service 
+that needs to be enabled:
+'''bash
+systemd --user enable rclone-gdrive.service
+'''
