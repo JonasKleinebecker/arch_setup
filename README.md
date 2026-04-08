@@ -36,8 +36,26 @@ The hyprland config includes desktop/laptop specific configurations.
 They are seperated out into their own files in .config/hypr/.
 Source the file including the extensions you want to activate in the main hyprland.conf file.
 
-The google drive integration via rclone is configured in this repository via systemd service 
-that needs to be enabled:
+The google drive integration works via rclone. To get it working run the config wizard and follow
+the steps for creating a new google drive config:
+'''
+rclone config
+'''
+
+Name the drive jonas-gdrive or you need to edit the rclone-gdrive.service used for automatic mounting (described in more
+detail below).
+
+The config will ask for a client id/secret which is stored in 1password.
+Alternativly, create a new one by following this tutorial:
+https://rclone.org/drive/#making-your-own-client-id
+
+To have the google drive automatically mount on login activate the systemd service
+which is part of the config:
 '''bash
 systemd --user enable rclone-gdrive.service
 '''
+
+This only works out of the box if your home directory is /home/jonas and your rclone gdrive is named jonas-gdrive.
+Otherwise change ~/.config/systemd/user/rclone-gdrive.service accordingly.
+
+
