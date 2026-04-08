@@ -58,4 +58,7 @@ systemd --user enable rclone-gdrive.service
 This only works out of the box if your home directory is /home/jonas and your rclone gdrive is named jonas-gdrive.
 Otherwise change ~/.config/systemd/user/rclone-gdrive.service accordingly.
 
-
+To use the ssh-agent service (start ssh-agent on login to only enter ssh credentials once), enable it:
+'''bash
+systemd --user enable ssh-agent.service
+'''
