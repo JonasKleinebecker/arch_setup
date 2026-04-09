@@ -57,7 +57,9 @@
     "format": "{icon}",
     "format-charging": "󰂄",
     "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-    "tooltip": true
+    "tooltip": true,
+    "tooltip-format": "{capacity}%",
+    "tooltip-format-charging": "{capacity}% • {time}"
   },
 
   // TRAY
