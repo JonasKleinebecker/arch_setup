@@ -40,6 +40,14 @@ return {
 		},
 
 		{
+			"<leader>fn",
+			function()
+				require("fzf-lua").files({ cwd = "~/vaults" })
+			end,
+			desc = "Find Files in Notes Vaults",
+		},
+
+		{
 			"<leader>fs",
 			function()
 				require("fzf-lua").live_grep()

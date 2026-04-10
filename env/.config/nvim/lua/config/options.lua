@@ -1,5 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.opt_local.conceallevel = 2 --for obsidian.nvim
+
 local opt = vim.opt
 
 opt.relativenumber = true
