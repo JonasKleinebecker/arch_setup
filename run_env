@@ -72,6 +72,8 @@ copy_file() {
 
 copy_dir ./env/.config $XDG_CONFIG_HOME
 copy_dir ./env/.local $HOME/.local
+copy_file ./env/systemd/user/rclone-gdrive.service $XDG_CONFIG_HOME/systemd/User/rclone-gdrive.service
+copy_file ./env/systemd/user/ssh-agent.service $XDG_CONFIG_HOME/systemd/User/ssh-agent.service
 copy_file ./env/.ssh/config $HOME/.ssh
 copy_file ./env/.zshrc $HOME
 

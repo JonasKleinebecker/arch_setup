@@ -49,10 +49,10 @@ The config will ask for a client id/secret which is stored in 1password.
 Alternativly, create a new one by following this tutorial:
 https://rclone.org/drive/#making-your-own-client-id
 
-To have the google drive automatically mount on login activate the systemd service
+To have the google drive automatically mount on login activate the systemctl service
 which is part of the config:
 '''bash
-systemd --user enable rclone-gdrive.service
+systemctl --user enable rclone-gdrive.service
 '''
 
 This only works out of the box if your home directory is /home/jonas and your rclone gdrive is named jonas-gdrive.
@@ -60,5 +60,11 @@ Otherwise change ~/.config/systemd/user/rclone-gdrive.service accordingly.
 
 To use the ssh-agent service (start ssh-agent on login to only enter ssh credentials once), enable it:
 '''bash
-systemd --user enable ssh-agent.service
+systemctl --user enable ssh-agent.service
 '''
+
+The systemd folder is in this setup directory is not located in the .config folder even though it ends
+up in the .config folder after running run_env. This is because the copy_dir command in run_env deletes subdirectories
+of .config before pasting into them. This breaks symlinks in the systemd directory which are created by enabling
+services. Because of this the copy_file command inside run_env is used instead. Each new file in systemd therefore
+needs to be added manually to run_env.
