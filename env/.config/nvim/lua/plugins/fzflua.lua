@@ -96,6 +96,17 @@ return {
 		},
 
 		{
+			"<leader>ft",
+			function()
+				require("fzf-lua").grep({
+					cwd = "~/vaults/",
+					search = "[ ]",
+				})
+			end,
+			desc = "Search for open todos in notes",
+		},
+
+		{
 			"<leader>/",
 			function()
 				require("fzf-lua").lgrep_curbuf()
