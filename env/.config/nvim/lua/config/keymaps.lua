@@ -33,6 +33,28 @@ vim.keymap.set("n", "<leader>vl", "<cmd>Lazy<CR>", { silent = true, desc = "Lazy
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })
 
+-- use öä instead of [] for navigation keymaps
+
+-- buffers
+vim.keymap.set("n", "öb", "[b", { desc = "Previous buffer" })
+vim.keymap.set("n", "äb", "]b", { desc = "Next buffer" })
+vim.keymap.set("n", "öB", "[B", { desc = "First buffer" })
+vim.keymap.set("n", "äB", "]B", { desc = "Last buffer" })
+
+-- diagnostics
+vim.keymap.set("n", "öd", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "äd", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+
+-- quickfix / location list
+vim.keymap.set("n", "öq", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
+vim.keymap.set("n", "äq", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
+vim.keymap.set("n", "öl", "<cmd>lprev<CR>", { desc = "Previous location list item" })
+vim.keymap.set("n", "äl", "<cmd>lnext<CR>", { desc = "Next location list item" })
+
+-- git hunks (gitsigns)
+vim.keymap.set("n", "öh", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous git hunk" })
+vim.keymap.set("n", "äh", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next git hunk" })
+
 --highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
