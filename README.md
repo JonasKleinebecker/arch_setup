@@ -63,8 +63,15 @@ To use the ssh-agent service (start ssh-agent on login to only enter ssh credent
 systemctl --user enable ssh-agent.service
 '''
 
+To have the tmux server startup automatically on login and save the session on logout ussing tmux-resurect, run:
+'''bash
+systemctl --user enable tmux.service
+'''
+
 The systemd folder is in this setup directory is not located in the .config folder even though it ends
 up in the .config folder after running run_env. This is because the copy_dir command in run_env deletes subdirectories
 of .config before pasting into them. This breaks symlinks in the systemd directory which are created by enabling
 services. Because of this the copy_file command inside run_env is used instead. Each new file in systemd therefore
 needs to be added manually to run_env.
+
+The obsidian.nvim plugin needs the folder ~/vaults/personal/ to exists. Create it or change the config of the plugin.
