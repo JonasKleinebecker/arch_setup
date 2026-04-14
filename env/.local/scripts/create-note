@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nvim -c "Obsidian new $1"
