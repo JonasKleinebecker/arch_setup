@@ -56,7 +56,8 @@ systemctl --user enable rclone-gdrive.service
 '''
 
 This only works out of the box if your home directory is /home/jonas and your rclone gdrive is named jonas-gdrive.
-Otherwise change ~/.config/systemd/user/rclone-gdrive.service accordingly.
+Otherwise change ~/.config/systemd/user/rclone-gdrive.service accordingly. Also, ~/gdrive/ needs to exist.
+Finally, /etc/fuse.conf needs to include user_allow_other.
 
 To use the ssh-agent service (start ssh-agent on login to only enter ssh credentials once), enable it:
 '''bash
