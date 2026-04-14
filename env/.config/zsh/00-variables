@@ -30,5 +30,4 @@ export PATH="$PATH:/home/jonas/.local/bin"
 export TERM=tmux-256color
 export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins"
 
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
