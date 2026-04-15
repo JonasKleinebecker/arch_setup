@@ -30,7 +30,7 @@ return {
 			preset = "default",
 			["<A-k>"] = { "select_prev", "fallback" },
 			["<A-j>"] = { "select_next", "fallback" },
-			["<C-z>"] = { "select_and_accept", "fallback" },
+			["<C-f>"] = { "select_and_accept", "fallback" },
 			-- disable a keymap from the preset
 			["<C-p>"] = {},
 			["<C-y>"] = {},
