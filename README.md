@@ -76,3 +76,6 @@ services. Because of this the copy_file command inside run_env is used instead. 
 needs to be added manually to run_env.
 
 The obsidian.nvim plugin needs the folder ~/vaults/personal/ to exists. Create it or change the config of the plugin.
+
+$HOME/Pictures/screenshots needs to exist for hyprshot. This is where it stores screenshots.
+Alternativly, change definition of HYPRSHOT_DIR in zsh config.

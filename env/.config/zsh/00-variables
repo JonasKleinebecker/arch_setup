@@ -31,3 +31,5 @@ export TERM=tmux-256color
 export TMUX_PLUGIN_MANAGER_PATH="$HOME/.config/tmux/plugins"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"
+
+export HYPRSHOT_DIR="$HOME/Pictures/screenshots"
