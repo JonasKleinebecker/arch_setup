@@ -24,3 +24,4 @@ keyd
 rclone
 tree
 rsync
+wine
