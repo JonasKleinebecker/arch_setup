@@ -8,6 +8,9 @@ alias la='ls -A --color'
 alias ll='ls -lA --color'
 alias vi='nvim'
 alias vim='nvim'
+# find notes via fzf from the terminal
+alias fn="find ~/vaults/personal -type f -name '*.md' -print0 | fzf --read0 --preview 'bat --color=always {}' --bind 'enter:become(nvim {+})'"
+alias ft="grep -r '\[ \]' ~/vaults/personal | sed 's/:-//' | fzf --preview 'bat --color=always {1}' --with-nth=2.. --preview-window=up --bind 'enter:become(nvim {1})'"
 
 # ---------------------------------------------------------
 # EXPORTS
