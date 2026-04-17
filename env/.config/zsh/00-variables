@@ -10,7 +10,15 @@ alias vi='nvim'
 alias vim='nvim'
 # find notes via fzf from the terminal
 alias fn="find ~/vaults/personal -type f -name '*.md' -print0 | fzf --read0 --preview 'bat --color=always {}' --bind 'enter:become(nvim {+})'"
-alias ft="grep -r '\[ \]' ~/vaults/personal | sed 's/:-//' | fzf --preview 'bat --color=always {1}' --with-nth=2.. --preview-window=up --bind 'enter:become(nvim {1})'"
+#find todos in notes
+ft() {
+        (rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal) \
+        | fzf --delimiter=':' --with-nth=3.. \
+      --preview 'bat --color=always {1} --highlight-line {2}' \
+      --preview-window=up \
+      --bind "ctrl-x:execute(sed -i '{2}s/\[ \]/[x]/; t; {2}s/\[x\]/[ ]/' {1})+reload-sync(rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal)" \
+      --bind "enter:become(nvim {1} +{2})" 
+}
 
 # ---------------------------------------------------------
 # EXPORTS
