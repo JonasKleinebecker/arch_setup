@@ -56,11 +56,21 @@ return {
 		},
 
 		{
+			"<leader>fl",
+			function()
+				require("fzf-lua").live_grep({
+					cwd = "~/vaults",
+				})
+			end,
+			desc = "Live Grep in Notes Vaults",
+		},
+
+		{
 			"<leader>fs",
 			function()
 				require("fzf-lua").live_grep()
 			end,
-			desc = "Find String in Current Working Directory",
+			desc = "Live Grep in Current Working Directory",
 		},
 
 		{
