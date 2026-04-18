@@ -3,6 +3,11 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("fzf-lua").setup({
+			winopts = {
+				preview = {
+					vertical = "up:55%",
+				},
+			},
 			fzf_opts = {
 				["--layout"] = "default", -- show prompt at the bottom
 			},
@@ -42,9 +47,12 @@ return {
 		{
 			"<leader>fn",
 			function()
-				require("fzf-lua").files({ cwd = "~/vaults" })
+				require("fzf-lua").files({
+					cwd = "~/vaults",
+					cmd = "fd --type f --extension md",
+				})
 			end,
-			desc = "Find Files in Notes Vaults",
+			desc = "Find Markdown Files in Notes Vaults",
 		},
 
 		{
@@ -94,13 +102,45 @@ return {
 			end,
 			desc = "Find Old Files",
 		},
-
 		{
 			"<leader>ft",
 			function()
-				require("fzf-lua").grep({
-					cwd = "~/vaults/",
-					search = "[ ]",
+				require("fzf-lua").fzf_exec([[rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal]], {
+					prompt = "Todos❯ ",
+					fzf_opts = {
+						["--delimiter"] = ":",
+						["--with-nth"] = "3..",
+					},
+
+					-- use builtin nvim previewer
+					previewer = "builtin",
+
+					actions = {
+						-- ENTER → open in nvim at line (like your become)
+						["default"] = function(selected)
+							local entry = selected[1]
+							local file, line = entry:match("([^:]+):(%d+):")
+							vim.cmd("edit +" .. line .. " " .. file)
+						end,
+
+						-- CTRL-X → toggle checkbox + reload
+						["ctrl-x"] = {
+							fn = function(selected)
+								for _, entry in ipairs(selected) do
+									local file, line = entry:match("([^:]+):(%d+):")
+									vim.fn.system(
+										string.format(
+											[[sed -i '%ss/\[ \]/[x]/; t; %ss/\[x\]/[ ]/' %s]],
+											line,
+											line,
+											file
+										)
+									)
+								end
+							end,
+							reload = true, -- this is your reload-sync equivalent
+						},
+					},
 				})
 			end,
 			desc = "Search for open todos in notes",
