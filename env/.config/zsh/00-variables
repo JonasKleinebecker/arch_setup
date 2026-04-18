@@ -9,7 +9,7 @@ alias ll='ls -lA --color'
 alias vi='nvim'
 alias vim='nvim'
 # find notes via fzf from the terminal
-alias fn="find ~/vaults/personal -type f -name '*.md' -printf '%P\0' | fzf --read0 --preview 'bat --color=always ~/vaults/personal/{}' --bind 'enter:become(nvim ~/vaults/personal/{})'"
+alias fn="find ~/vaults/personal -type f -name '*.md' -printf '%P\0' | fzf --read0 --preview 'bat --color=always ~/vaults/personal/{}' --bind 'enter:become(nvim ~/vaults/personal/{})' || true"
 #find todos in notes
 ft() {
         (rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal) \
@@ -17,7 +17,7 @@ ft() {
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --preview-window=up \
       --bind "ctrl-x:execute(sed -i '{2}s/\[ \]/[x]/; t; {2}s/\[x\]/[ ]/' {1})+reload-sync(rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal)" \
-      --bind "enter:become(nvim {1} +{2})" 
+      --bind "enter:become(nvim {1} +{2})" || true
 }
 #live grep in notes
 fl() {
@@ -26,7 +26,7 @@ rg --smart-case --line-number --no-heading --color=always "" ~/vaults/personal \
       --bind 'change:reload:rg --smart-case --line-number --no-heading --color=always {q} ~/vaults/personal || true' \
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --bind "enter:become(nvim {1})" \
-      --preview-window=down:65%
+      --preview-window=down:65% || true
 }
 
 # ---------------------------------------------------------
