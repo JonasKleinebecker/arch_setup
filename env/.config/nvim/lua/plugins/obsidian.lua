@@ -35,7 +35,7 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/vaults/personal",
+				path = "~/gdrive/vaults/personal",
 			},
 		},
 	},

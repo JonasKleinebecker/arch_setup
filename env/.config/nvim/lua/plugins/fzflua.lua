@@ -115,7 +115,7 @@ return {
 		{
 			"<leader>ft",
 			function()
-				require("fzf-lua").fzf_exec([[rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal]], {
+				require("fzf-lua").fzf_exec([[rg -n '\[ \]' ~/gdrive/vaults/personal; rg -n '\[x\]' ~/vaults/personal]], {
 					prompt = "Todos❯ ",
 					fzf_opts = {
 						["--delimiter"] = ":",

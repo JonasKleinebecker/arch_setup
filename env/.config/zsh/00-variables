@@ -9,21 +9,21 @@ alias ll='ls -lA --color'
 alias vi='nvim'
 alias vim='nvim'
 # find notes via fzf from the terminal
-alias fn="find ~/vaults/personal -type f -name '*.md' -printf '%P\0' | fzf --read0 --preview 'bat --color=always ~/vaults/personal/{}' --bind 'enter:become(nvim ~/vaults/personal/{})' || true"
+alias fn="find ~/gdrive/vaults/personal -type f -name '*.md' -printf '%P\0' | fzf --read0 --preview 'bat --color=always ~/gdrive/vaults/personal/{}' --bind 'enter:become(nvim ~/vaults/personal/{})' || true"
 #find todos in notes
 ft() {
-        (rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal) \
+        (rg -n '\[ \]' ~/gdrive/vaults/personal; rg -n '\[x\]' ~/gdrive/vaults/personal) \
         | fzf --delimiter=':' --with-nth=3.. \
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --preview-window=up \
-      --bind "ctrl-x:execute(sed -i '{2}s/\[ \]/[x]/; t; {2}s/\[x\]/[ ]/' {1})+reload-sync(rg -n '\[ \]' ~/vaults/personal; rg -n '\[x\]' ~/vaults/personal)" \
+      --bind "ctrl-x:execute(sed -i '{2}s/\[ \]/[x]/; t; {2}s/\[x\]/[ ]/' {1})+reload-sync(rg -n '\[ \]' ~/gdrive/vaults/personal; rg -n '\[x\]' ~/gdrive/vaults/personal)" \
       --bind "enter:become(nvim {1} +{2})" || true
 }
 #live grep in notes
 fl() {
-rg --smart-case --line-number --no-heading --color=always "" ~/vaults/personal \
+rg --smart-case --line-number --no-heading --color=always "" ~/gdrive/vaults/personal \
 | fzf --ansi --delimiter=':' \
-      --bind 'change:reload:rg --smart-case --line-number --no-heading --color=always {q} ~/vaults/personal || true' \
+      --bind 'change:reload:rg --smart-case --line-number --no-heading --color=always {q} ~/gdrive/vaults/personal || true' \
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --bind "enter:become(nvim {1})" \
       --preview-window=down:65% || true
